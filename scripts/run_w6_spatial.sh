@@ -3,8 +3,8 @@
 # finest mesh (ref6) is the numerical reference. degree=1 (coords=2 auto), cPG P2 in
 # time so temporal error is negligible. tmax=2 days (pre-breakdown), nsteps=256
 # (dt=675s, Courant ~0.3-0.5 at ref6). Test refs 2,3,4 vs ref6 -> two clean order-2 rates.
-source ~/march26_firedrke/venv-firedrake/bin/activate
-cd ~/rsw_energy_conserving
+[ -n "$FIREDRAKE_VENV" ] && source "$FIREDRAKE_VENV/bin/activate"   # your Firedrake venv, e.g. FIREDRAKE_VENV=~/firedrake
+cd "${RSW_LIB:-$HOME/rsw_energy_conserving}"   # clone of colinjcotter/rsw_energy_conserving
 mkdir -p logs
 TMAX=172800; SEED=987654321; DEG=1; WTC=6
 MODE=${MODE:-spatial}             # spatial | temporal

@@ -1,8 +1,8 @@
 #!/bin/bash
 # Add ref5 to the W6 spatial sweep, then re-analyse refs 2,3,4,5 vs reference ref6.
 # Waits for the current w6sp sweep to finish (frees the 16 cores) before starting.
-source ~/march26_firedrke/venv-firedrake/bin/activate
-cd ~/rsw_energy_conserving
+[ -n "$FIREDRAKE_VENV" ] && source "$FIREDRAKE_VENV/bin/activate"   # your Firedrake venv, e.g. FIREDRAKE_VENV=~/firedrake
+cd "${RSW_LIB:-$HOME/rsw_energy_conserving}"   # clone of colinjcotter/rsw_energy_conserving
 mkdir -p logs
 
 echo "waiting for current w6 sweep (analysis + cores free)..."

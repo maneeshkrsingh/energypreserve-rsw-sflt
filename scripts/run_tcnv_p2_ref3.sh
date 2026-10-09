@@ -3,8 +3,8 @@
 # Fixed mesh ref3 (coarser -> larger stable dt -> more headroom above the numerical-
 # reference floor) so the order-3 rate settles over >1 interval instead of flooring.
 # vs fine-dt NUMERICAL reference (ns=256). Courant = 1.868/nsteps at ref3 (all < 0.9).
-source ~/march26_firedrke/venv-firedrake/bin/activate
-cd ~/rsw_energy_conserving
+[ -n "$FIREDRAKE_VENV" ] && source "$FIREDRAKE_VENV/bin/activate"   # your Firedrake venv, e.g. FIREDRAKE_VENV=~/firedrake
+cd "${RSW_LIB:-$HOME/rsw_energy_conserving}"   # clone of colinjcotter/rsw_energy_conserving
 mkdir -p logs
 TMAX=43200; SEED=987654321; DEG=2; TDEG=2; TREF=3
 TNS="4 8 16 32 256"

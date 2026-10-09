@@ -6,8 +6,8 @@
 #     bash run_lauter_determ.sh
 # Re-running is cheap: completed checkpoints are reused (set RERUN=1 to force re-solve).
 
-source ~/march26_firedrke/venv-firedrake/bin/activate
-cd ~/rsw_energy_conserving
+[ -n "$FIREDRAKE_VENV" ] && source "$FIREDRAKE_VENV/bin/activate"   # your Firedrake venv, e.g. FIREDRAKE_VENV=~/firedrake
+cd "${RSW_LIB:-$HOME/rsw_energy_conserving}"   # clone of colinjcotter/rsw_energy_conserving
 
 # -------------------- knobs --------------------
 NP=8                       # MPI ranks per run

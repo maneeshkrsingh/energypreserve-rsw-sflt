@@ -1,5 +1,5 @@
-source ~/march26_firedrke/venv-firedrake/bin/activate
-cd ~/rsw_energy_conserving
+[ -n "$FIREDRAKE_VENV" ] && source "$FIREDRAKE_VENV/bin/activate"   # your Firedrake venv, e.g. FIREDRAKE_VENV=~/firedrake
+cd "${RSW_LIB:-$HOME/rsw_energy_conserving}"   # clone of colinjcotter/rsw_energy_conserving
 mkdir -p logs
 NS_1=1.28e8; NS_10=1.28e9; NS_25=3.21e9; NS_50=6.41e9
 COMMON="--williamson 6 --ref_level 5 --nsteps 400 --tmax 172800 --lam 6e6 --diagnostics_every 10 --no_output"

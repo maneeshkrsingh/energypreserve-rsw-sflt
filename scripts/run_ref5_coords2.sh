@@ -1,8 +1,8 @@
 #!/bin/bash
 # coords_degree=2 (set in sw_tools.py) Läuter Ex.3 spatial sweep: add ref 5, then
 # analyse refs 2-5 as a consistent coords2 set. refs 2-4 already on disk from prior run.
-source ~/march26_firedrke/venv-firedrake/bin/activate
-cd ~/rsw_energy_conserving
+[ -n "$FIREDRAKE_VENV" ] && source "$FIREDRAKE_VENV/bin/activate"   # your Firedrake venv, e.g. FIREDRAKE_VENV=~/firedrake
+cd "${RSW_LIB:-$HOME/rsw_energy_conserving}"   # clone of colinjcotter/rsw_energy_conserving
 mkdir -p logs
 CHK=../RSW_checkpoint/new_RSW_checkpoint
 

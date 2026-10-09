@@ -1,5 +1,5 @@
-source ~/march26_firedrke/venv-firedrake/bin/activate
-cd ~/rsw_energy_conserving
+[ -n "$FIREDRAKE_VENV" ] && source "$FIREDRAKE_VENV/bin/activate"   # your Firedrake venv, e.g. FIREDRAKE_VENV=~/firedrake
+cd "${RSW_LIB:-$HOME/rsw_energy_conserving}"   # clone of colinjcotter/rsw_energy_conserving
 # wait for the deterministic W5 viz (w5finish) to finish, then run strong-noise SFLT
 while tmux has-session -t w5finish 2>/dev/null; do sleep 30; done
 echo "[w5sflt] pure viz done $(date) -- starting W5 SFLT (~50% noise)"

@@ -4,8 +4,8 @@
 # ladder. cPG P1 (time_degree=1 == continuous P1 / P0 test == implicit midpoint).
 # Courant C = u0*dt/h = 7.47/nsteps at ref5 (u0=38.6 m/s, h=223.2 km):
 #   ns   8 -> C 0.93 | 16 -> 0.47 | 32 -> 0.23 | 64 -> 0.12 | 128 -> 0.06 | 256 -> 0.03
-source ~/march26_firedrke/venv-firedrake/bin/activate
-cd ~/rsw_energy_conserving
+[ -n "$FIREDRAKE_VENV" ] && source "$FIREDRAKE_VENV/bin/activate"   # your Firedrake venv, e.g. FIREDRAKE_VENV=~/firedrake
+cd "${RSW_LIB:-$HOME/rsw_energy_conserving}"   # clone of colinjcotter/rsw_energy_conserving
 mkdir -p logs
 REF=5; TMAX=43200; TDEG=1; SEED=987654321
 NSTEPS="8 16 32 64 128 256"

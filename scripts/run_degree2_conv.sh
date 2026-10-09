@@ -4,8 +4,8 @@
 # Expect SPATIAL order ~3 (both u,D) and TEMPORAL order ~4.
 # Spatial: vary mesh at fixed dt (time_degree=2 makes temporal error negligible).
 # Temporal: fixed mesh, vary dt, vs fine-dt NUMERICAL reference (degree-agnostic, no floor).
-source ~/march26_firedrke/venv-firedrake/bin/activate
-cd ~/rsw_energy_conserving
+[ -n "$FIREDRAKE_VENV" ] && source "$FIREDRAKE_VENV/bin/activate"   # your Firedrake venv, e.g. FIREDRAKE_VENV=~/firedrake
+cd "${RSW_LIB:-$HOME/rsw_energy_conserving}"   # clone of colinjcotter/rsw_energy_conserving
 mkdir -p logs
 TMAX=43200; SEED=987654321; DEG=2; TDEG=2
 

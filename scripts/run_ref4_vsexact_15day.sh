@@ -4,8 +4,8 @@
 # spatial error floor is low and the order-2 temporal convergence shows cleanly vs the
 # EXACT solution. tmax=5 days. Courant = u0*dt/h5 = 38.6*dt/223200 at ref5:
 # ns160->0.47, 320->0.23, 640->0.12, 1280->0.06 (ns80 would be ~0.93 -> dropped).
-source ~/march26_firedrke/venv-firedrake/bin/activate
-cd ~/rsw_energy_conserving
+[ -n "$FIREDRAKE_VENV" ] && source "$FIREDRAKE_VENV/bin/activate"   # your Firedrake venv, e.g. FIREDRAKE_VENV=~/firedrake
+cd "${RSW_LIB:-$HOME/rsw_energy_conserving}"   # clone of colinjcotter/rsw_energy_conserving
 mkdir -p logs
 TMAX=432000; SEED=987654321; DEG=1; TDEG=1; TREF=5
 TNS="160 320 640 1280"

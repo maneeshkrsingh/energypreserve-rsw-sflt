@@ -4,8 +4,8 @@ Scripts, raw numbers and figures for the numerical experiments of the paper on
 the energy-conserving stochastic rotating shallow water equations (SFLT noise).
 The simulation code is a separate library:
 
-- https://github.com/colinjcotter/rsw_energy_conserving (these results were
-  produced with `main` up to commit `ed92c7f`; the convergence analysis scripts
+- https://github.com/colinjcotter/rsw_energy_conserving (`main` at commit
+  `ed92c7f` when this repository was created; the convergence analysis scripts
   `scnv_analysis.py`, `tcnv_analysis.py`, `exact_cnv_analysis.py` and
   `exact_tcnv_analysis.py` live there).
 
@@ -25,8 +25,11 @@ can be regenerated without re-running the simulations.
   - `lauter_spatial_*.txt`, `lauter_temporal_*.txt` — error against the exact
     Läuter Example 3 solution
   - `table*_results*`, `results_summary.csv` — further summary numbers
-- `figures/` — the figures (`.png`) and LaTeX tables / figure wrappers (`.tex`)
-- `scripts/` — plotting scripts and the shell scripts that ran the simulations
+- `figures/` — the figures (`.png`) and LaTeX tables / figure wrappers (`.tex`).
+  A name containing `figNN` (e.g. `w6_fig11_vorticity_strong_forcing.png`) is
+  the paper's Fig. NN; the rest are earlier or supporting versions.
+- `scripts/` — plotting scripts, the shell scripts that ran the simulations, and
+  `make_panels.sh` for the comparison panels
 
 ## Regenerating the figures
 
@@ -78,16 +81,48 @@ stored in `data/`:
 To regenerate the numbers, run the simulations with the library and then its
 analysis scripts.
 
+## Re-running the simulations
+
+Clone the library and check out the commit used here:
+
+    git clone https://github.com/colinjcotter/rsw_energy_conserving
+    git -C rsw_energy_conserving checkout ed92c7f
+
+Each `scripts/run_*.sh` then runs from that clone. Set two variables first (the
+scripts read them at the top):
+
+    export FIREDRAKE_VENV=~/firedrake          # your Firedrake environment
+    export RSW_LIB=~/rsw_energy_conserving     # the library clone (this is the default)
+
+The run scripts call the library's `scnv_analysis.py` and `tcnv_analysis.py`,
+so they must run from the clone; `run_w5_*.sh` also call plot scripts from this
+repository's `scripts/`. They write results to the clone's directory and
+checkpoints to `../RSW_checkpoint/`. Each script header describes its study.
+
+| Script | Result | Output numbers in `data/` |
+|---|---|---|
+| `run_scnv.sh` | W6 spatial convergence, SFLT, shared noise | `w6_sflt_spatial.txt` |
+| `run_tcnv.sh` | W6 temporal convergence, SFLT (shared Brownian path) or `pure` | `w6_sflt_temporal.txt` (`pure` mode writes `w6_pure_temporal.txt`) |
+| `run_w6_spatial.sh`, `run_ref5_w6_add.sh` | W6 spatial and temporal, deterministic, against a ref 6 reference | `w6_spatial_pure.txt`, `w6_temporal_pure.txt` |
+| `run_lauter_determ.sh` | Läuter spatial and temporal error against the exact solution (writes `lauter_{spatial,temporal}_<bdm\|bdfm>.txt`; `BDFM=1` for the BDFM space) | `lauter_spatial_*.txt`, `lauter_temporal_*.txt` |
+| `run_ref5_coords2.sh`, `run_tcnv_coords2.sh` | the same with quadratic geometry (`coords_degree=2`) | `lauter_spatial_coords2_full.txt`, `lauter_temporal_coords2.txt` |
+| `run_degree2_conv.sh` | degree-2 robustness study | `lauter_spatial_deg2.txt`, `lauter_temporal_deg2.txt` |
+| `run_ref4_vsexact_15day.sh`, `run_tcnv_numref_ref4.sh`, `run_tcnv_p2_ref3.sh` | further temporal studies (ref 5 vs exact, numerical reference at ref 4, P2 at ref 3) | `lauter_temporal_p1_ref5.txt`, `lauter_temporal_numref_ref4.txt`, `lauter_temporal_p2_ref3.txt` |
+| `run_w6_exp34.sh` | SFLT amplitude sweep and 16-seed ensemble (diagnostics CSVs) | `w6_diag_amp_*.csv`, `w6_diag_ens_seed*.csv` |
+| `run_w5_longtime.sh`, `run_w5_restore.sh` | W5 15-day long-time diagnostics | `w5_diagnostics_pure.csv` |
+| `run_w5_finish.sh`, `run_w5_sflt.sh` | W5 5-day deterministic and strong-noise SFLT runs with VTK output | VTK, see below |
+| `run_w6_compare.sh`, `run_w6_strong_viz.sh` | W6 2-day pure, SFLT and strong-noise runs with VTK output | VTK, see below |
+
+The W5/W6 runs with `--diagnostics_every` write `w<case>_diagnostics_<SFLT|pure>.csv`;
+several of the `data/` files are copies of these, renamed per figure.
+
 ## Vorticity and velocity comparison panels
 
-`figures/w5_compare_*.png`, `figures/w6_compare_*.png` and
-`figures/w6_sflt_vorticity.png` are drawn from the VTK/PVD output of the
-simulations with `scripts/make_compare_figs.py` (or `scripts/render_compare.py`
-with ParaView's `pvbatch`). That output is tens of GB and is not stored here;
-re-create it with the matching `scripts/run_w5_*.sh` / `scripts/run_w6_*.sh`.
-
-## Simulation scripts
-
-`scripts/run_*.sh` are the shell scripts that ran the simulations, kept as a
-record. They were written for one machine: edit the Firedrake environment and
-`cd ~/rsw_energy_conserving` lines at the top before using them.
+The panels (`figures/*compare*`, `figures/w6_fig10_*`, `figures/w6_fig11_*`,
+`figures/w5_fig19_*`, `figures/w6_sflt_vorticity.png`) are drawn from the VTK
+output of the W5/W6 runs above. That output is tens of GB and is not stored in
+this repository; re-run the corresponding `run_w5_*.sh` or `run_w6_*.sh`, then
+`scripts/make_panels.sh` from the library clone (`make_compare_figs.py` needs the
+`vtk` Python module). The Fig. 11 and strong-forcing Fig. 19 commands are
+recorded exactly in `make_panels.sh`; the other panels use the same call with
+different `.pvd` files.

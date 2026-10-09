@@ -3,8 +3,8 @@
 # --pure, fixed mesh ref4 coords_degree=2, cPG P1. Error = ||u(dt) - u(dt_ref)|| on the
 # SAME mesh, so spatial error cancels and the rate stays ~2 over the whole ladder.
 # ns=1024 is the fine reference. Courant = u0*dt/h = 3.735/nsteps at ref4 (all < 0.9).
-source ~/march26_firedrke/venv-firedrake/bin/activate
-cd ~/rsw_energy_conserving
+[ -n "$FIREDRAKE_VENV" ] && source "$FIREDRAKE_VENV/bin/activate"   # your Firedrake venv, e.g. FIREDRAKE_VENV=~/firedrake
+cd "${RSW_LIB:-$HOME/rsw_energy_conserving}"   # clone of colinjcotter/rsw_energy_conserving
 mkdir -p logs
 REF=4; TMAX=43200; TDEG=1; SEED=987654321
 NSTEPS="8 16 32 64 128 256 1024"

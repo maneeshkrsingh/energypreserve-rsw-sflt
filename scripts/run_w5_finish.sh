@@ -1,9 +1,10 @@
-source ~/march26_firedrke/venv-firedrake/bin/activate
-cd ~/rsw_energy_conserving
+SCRIPTS_DIR="$(cd "$(dirname "$0")" && pwd)"   # this folder (plot scripts)
+[ -n "$FIREDRAKE_VENV" ] && source "$FIREDRAKE_VENV/bin/activate"   # your Firedrake venv, e.g. FIREDRAKE_VENV=~/firedrake
+cd "${RSW_LIB:-$HOME/rsw_energy_conserving}"   # clone of colinjcotter/rsw_energy_conserving
 # 1. wait for Exp 4 ensemble to finish (frees cores)
 while tmux has-session -t w6exp34 2>/dev/null; do sleep 30; done
 echo "[finish] exp34 done $(date) -- building ensemble figure"
-python make_sflt_energy_plots.py --mode ensemble --prefix w6 2>&1 | tail -1
+python "$SCRIPTS_DIR/make_sflt_energy_plots.py" --mode ensemble --prefix w6 2>&1 | tail -1
 # 2. clear stale W5 VTK (old May/Jun runs, 2.4 GB)
 rm -rf w5_rsw_output_pure w5_rsw_output_pure.pvd w5_rsw_output_SFLT w5_rsw_output_SFLT.pvd
 echo "[finish] stale W5 dirs cleared -- starting deterministic W5 viz $(date)"
