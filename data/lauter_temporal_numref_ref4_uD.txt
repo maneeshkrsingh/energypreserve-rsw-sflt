@@ -1,0 +1,43 @@
+
+Temporal convergence  (pure, ref_level=4, cPG P1)
+Time stepping: factor-2 refinement between levels, tmax=43200 s
+Averaged over 1 seed(s)
+==================================================
+
+ nsteps      dt (s)  dt (hours)
+      8       5400.0       1.5000
+     16       2700.0       0.7500
+     32       1350.0       0.3750
+     64        675.0       0.1875
+    128        337.5       0.0938
+    256        168.8       0.0469
+   1024         42.2       0.0117
+
+  nsteps=    8 (dt=5400 s): mean=2.010434e+07  std=0.000000e+00  n=1
+  nsteps=   16 (dt=2700 s): mean=5.125692e+06  std=0.000000e+00  n=1
+  nsteps=   32 (dt=1350 s): mean=1.297131e+06  std=0.000000e+00  n=1
+  nsteps=   64 (dt=675 s): mean=3.444496e+05  std=0.000000e+00  n=1
+  nsteps=  128 (dt=338 s): mean=1.373715e+05  std=0.000000e+00  n=1
+  nsteps=  256 (dt=169 s): mean=1.062286e+05  std=0.000000e+00  n=1
+
+[velocity] Convergence rates:
+  rate 8->16: 1.9717
+  rate 16->32: 1.9824
+  rate 32->64: 1.9130
+  rate 64->128: 1.3262
+  rate 128->256: 0.3709
+
+[depth] errors:
+  nsteps=    8 (dt=5400 s): mean=3.208659e+08  n=1
+  nsteps=   16 (dt=2700 s): mean=8.169468e+07  n=1
+  nsteps=   32 (dt=1350 s): mean=2.083784e+07  n=1
+  nsteps=   64 (dt=675 s): mean=6.117404e+06  n=1
+  nsteps=  128 (dt=338 s): mean=3.353331e+06  n=1
+  nsteps=  256 (dt=169 s): mean=2.697099e+06  n=1
+
+[depth] Convergence rates:
+  rate 8->16: 1.9737
+  rate 16->32: 1.9710
+  rate 32->64: 1.7682
+  rate 64->128: 0.8673
+  rate 128->256: 0.3142

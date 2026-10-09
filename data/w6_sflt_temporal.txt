@@ -1,0 +1,49 @@
+Authorization required, but no authorization protocol specified
+Authorization required, but no authorization protocol specified
+Authorization required, but no authorization protocol specified
+
+Temporal convergence  (SFLT, ref_level=4, cPG P1)
+Time stepping: factor-2 refinement between levels, tmax=100000 s
+Averaged over 2 seed(s)
+==================================================
+
+ nsteps      dt (s)  dt (hours)
+    200        500.0       0.1389
+    400        250.0       0.0694
+    800        125.0       0.0347
+   1600         62.5       0.0174
+   6400         15.6       0.0043
+
+  nsteps=  200 (dt=500 s): mean=6.188580e+07  std=3.198253e+05  n=2
+  nsteps=  400 (dt=250 s): mean=4.461871e+07  std=8.545406e+04  n=2
+  nsteps=  800 (dt=125 s): mean=2.747911e+07  std=1.769434e+05  n=2
+  nsteps= 1600 (dt=62 s): mean=1.434667e+07  std=3.785876e+03  n=2
+
+[velocity] Convergence rates:
+  rate 200->400: 0.4720
+  rate 400->800: 0.6993
+  rate 800->1600: 0.9376
+
+[depth] errors:
+  nsteps=  200 (dt=500 s): mean=1.374594e+09  n=2
+  nsteps=  400 (dt=250 s): mean=1.051114e+09  n=2
+  nsteps=  800 (dt=125 s): mean=6.770291e+08  n=2
+  nsteps= 1600 (dt=62 s): mean=3.383796e+08  n=2
+
+[depth] Convergence rates:
+  rate 200->400: 0.3871
+  rate 400->800: 0.6346
+  rate 800->1600: 1.0006
+WARNING! There are options you set that were not used!
+WARNING! could be spelling mistake, etc!
+There are 10 unused database options. They are:
+Option left: name:--seeds value: 1 source: command line
+Option left: name:--SFLT (no value) source: command line
+Option left: name:--time_degree value: 1 source: command line
+Option left: name:--timesteps value: 200 source: command line
+Option left: name:--williamson value: 6 source: command line
+Option left: name:-seeds value: 1 source: code
+Option left: name:-SFLT (no value) source: code
+Option left: name:-time_degree value: 1 source: code
+Option left: name:-timesteps value: 200 source: code
+Option left: name:-williamson value: 6 source: code

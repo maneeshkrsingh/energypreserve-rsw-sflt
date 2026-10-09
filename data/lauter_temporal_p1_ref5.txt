@@ -1,0 +1,35 @@
+Authorization required, but no authorization protocol specified
+Authorization required, but no authorization protocol specified
+Authorization required, but no authorization protocol specified
+
+Temporal error vs exact (Läuter Ex.3)  (pure, ref_level=5, cPG P1, tmax=432000s)
+Quantity reported: discretisation error
+============================================================
+
+ nsteps      dt (s)     ||u_err||       rel_u     ||D_err||       rel_D
+    160      2700.0    5.1180e+07  7.1881e-02    8.1423e+08  3.5328e-03
+    320      1350.0    1.2925e+07  1.8153e-02    2.0598e+08  8.9372e-04
+    640       675.0    3.3173e+06  4.6590e-03    5.4750e+07  2.3755e-04
+   1280       337.5    9.1523e+05  1.2854e-03    2.0791e+07  9.0210e-05
+
+Convergence rates (velocity / depth):
+  nsteps 160 -> 320:  u  1.985   D  1.983
+  nsteps 320 -> 640:  u  1.962   D  1.912
+  nsteps 640 -> 1280:  u  1.858   D  1.397
+WARNING! There are options you set that were not used!
+WARNING! could be spelling mistake, etc!
+There are 14 unused database options. They are:
+Option left: name:--degree value: 1 source: command line
+Option left: name:--ref_level value: 5 source: command line
+Option left: name:--seed value: 987654321 source: command line
+Option left: name:--time_degree value: 1 source: command line
+Option left: name:--timesteps value: 160 source: command line
+Option left: name:--tmax value: 432000 source: command line
+Option left: name:--williamson value: 2 source: command line
+Option left: name:-degree value: 1 source: code
+Option left: name:-ref_level value: 5 source: code
+Option left: name:-seed value: 987654321 source: code
+Option left: name:-time_degree value: 1 source: code
+Option left: name:-timesteps value: 160 source: code
+Option left: name:-tmax value: 432000 source: code
+Option left: name:-williamson value: 2 source: code

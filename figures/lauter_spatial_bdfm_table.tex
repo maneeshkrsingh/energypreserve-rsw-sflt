@@ -1,0 +1,25 @@
+% Spatial convergence -- Lauter et al. (2005) Example 3, deterministic (--pure).
+% BDFM2/DG1 spaces (degree=1, --bdfm), coords_degree=2, cPG P1 in time, nsteps=2000
+% (dt=21.6 s, t=43200 s); relative L2 errors vs the exact solution.
+% Requires \usepackage{booktabs}.
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{c c c c c c}
+    \toprule
+    ref & $h$ (km) & $\|u-u_{\mathrm{ex}}\|/\|u_{\mathrm{ex}}\|$ & rate$_u$
+        & $\|D-D_{\mathrm{ex}}\|/\|D_{\mathrm{ex}}\|$ & rate$_D$ \\
+    \midrule
+    2 & 1785.5 & $8.42\times10^{-3}$ & --   & $4.11\times10^{-3}$ & --   \\
+    3 &  892.8 & $2.12\times10^{-3}$ & 1.99 & $1.04\times10^{-3}$ & 1.99 \\
+    4 &  446.4 & $5.37\times10^{-4}$ & 1.98 & $2.60\times10^{-4}$ & 2.00 \\
+    5 &  223.2 & $1.35\times10^{-4}$ & 2.00 & $6.51\times10^{-5}$ & 2.00 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Spatial convergence for the Läuter et al.\ (2005) Example~3 test case
+    (deterministic) using the BDFM$_2$/DG$_1$ discretisation (\texttt{degree}$=1$,
+    \texttt{coords\_degree}$=2$) and the cPG ($P_1$) time integrator with
+    $\Delta t = 21.6$\,s (\texttt{nsteps}$=2000$) at $t = 43200$\,s. Relative $L^2$ errors
+    are measured against the exact solution on an icosahedral sphere mesh. Both the
+    velocity $u$ and depth $D$ converge cleanly at second order.}
+  \label{tab:lauter-spatial-bdfm}
+\end{table}

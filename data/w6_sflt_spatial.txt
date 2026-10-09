@@ -1,0 +1,41 @@
+Authorization required, but no authorization protocol specified
+Authorization required, but no authorization protocol specified
+Authorization required, but no authorization protocol specified
+
+Spatial convergence  (SFLT, nsteps=400)
+Mesh: icosahedral sphere, factor-2 refinement between levels
+Averaged over 3 seed(s)
+==================================================
+
+ ref    ncells    h (km)
+   2        160    1785.5
+   3        640     892.8
+   4       2560     446.4
+   5      10240     223.2
+
+  ref 2 (h≈1786 km): ||u_err||=1.270979e+07  ||D_err||=5.449870e+08  n=3
+  ref 3 (h≈893 km): ||u_err||=1.720059e+06  ||D_err||=1.382969e+08  n=3
+  ref 4 (h≈446 km): ||u_err||=2.726357e+05  ||D_err||=3.357894e+07  n=3
+
+Convergence rates (velocity):
+  ref 2 -> 3: 2.8854
+  ref 3 -> 4: 2.6574
+
+Convergence rates (depth):
+  ref 2 -> 3: 1.9785
+  ref 3 -> 4: 2.0421
+WARNING! There are options you set that were not used!
+WARNING! could be spelling mistake, etc!
+There are 12 unused database options. They are:
+Option left: name:--nsteps value: 400 source: command line
+Option left: name:--ref_levels value: 2 source: command line
+Option left: name:--seeds value: 1 source: command line
+Option left: name:--SFLT (no value) source: command line
+Option left: name:--time_degree value: 1 source: command line
+Option left: name:--williamson value: 6 source: command line
+Option left: name:-nsteps value: 400 source: code
+Option left: name:-ref_levels value: 2 source: code
+Option left: name:-seeds value: 1 source: code
+Option left: name:-SFLT (no value) source: code
+Option left: name:-time_degree value: 1 source: code
+Option left: name:-williamson value: 6 source: code

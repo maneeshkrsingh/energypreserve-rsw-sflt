@@ -1,0 +1,30 @@
+% Temporal convergence table -- Lauter et al. (2005) Example 3, deterministic (--pure).
+% Standard discretisation: degree=1 (BDM2/DG1, coords_degree=2), cPG P1 in time
+% (== implicit midpoint). FINER mesh (ref 5, small mesh width h) so the spatial error
+% floor is low and the order-2 temporal convergence shows cleanly. Errors are relative
+% L2 vs the EXACT solution at t = 432000 s (5 days). Courant = 38.6*dt/223200 at ref 5.
+% Requires \usepackage{booktabs}.
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{c c c c c c c}
+    \toprule
+    \texttt{nsteps} & $\Delta t$ (s) & Courant
+      & $\|u-u_{\mathrm{ex}}\|/\|u_{\mathrm{ex}}\|$ & rate$_u$
+      & $\|D-D_{\mathrm{ex}}\|/\|D_{\mathrm{ex}}\|$ & rate$_D$ \\
+    \midrule
+     160 & 2700 & 0.47 & $7.19\times10^{-2}$ & --   & $3.53\times10^{-3}$ & --   \\
+     320 & 1350 & 0.23 & $1.82\times10^{-2}$ & 1.99 & $8.94\times10^{-4}$ & 1.98 \\
+     640 &  675 & 0.12 & $4.66\times10^{-3}$ & 1.96 & $2.38\times10^{-4}$ & 1.91 \\
+    1280 &  338 & 0.06 & $1.29\times10^{-3}$ & 1.86 & $9.02\times10^{-5}$ & 1.40 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Temporal convergence for the Läuter et al.\ (2005) Example~3 test case
+    (deterministic) with the cPG ($P_1$) time integrator and the standard BDM$_2$/DG$_1$
+    spatial discretisation (\texttt{degree}$=1$, \texttt{coords\_degree}$=2$), on a fine
+    mesh (refinement level~5), over a CFL-respecting sequence of timesteps to
+    $t = 432000$\,s. Relative $L^2$ errors are measured against the exact solution.
+    Both fields show second-order temporal convergence; the rates soften at the finest
+    $\Delta t$ as the temporal error approaches the spatial discretisation floor
+    (depth at $\texttt{nsteps}=1280$ is only $\sim 1.4\times$ above its floor).}
+  \label{tab:lauter-temporal-coords2}
+\end{table}

@@ -1,0 +1,58 @@
+% =========================================================================
+% Degree-robustness convergence tables -- Lauter et al. (2005) Example 3,
+% deterministic (--pure). Higher-order element: degree=2 (BDM3/DG2 spaces),
+% quadratic+1 geometry coords_degree=3, cPG P2 (time_degree=2) integrator.
+% Requires \usepackage{booktabs}.
+% =========================================================================
+
+% ---------- SPATIAL (vary mesh, fixed dt; order ~3) ----------
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{c c c c c c}
+    \toprule
+    ref & $h$ (km) & $\|u-u_{\mathrm{ex}}\|/\|u_{\mathrm{ex}}\|$ & rate$_u$
+        & $\|D-D_{\mathrm{ex}}\|/\|D_{\mathrm{ex}}\|$ & rate$_D$ \\
+    \midrule
+    2 & 1785.5 & $8.89\times10^{-4}$ & --   & $3.02\times10^{-4}$ & --   \\
+    3 &  892.8 & $9.66\times10^{-5}$ & 3.20 & $3.82\times10^{-5}$ & 2.98 \\
+    4 &  446.4 & $1.15\times10^{-5}$ & 3.07 & $4.79\times10^{-6}$ & 3.00 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Spatial convergence for the Läuter et al.\ (2005) Example~3 test case
+    (deterministic) with the higher-order discretisation: BDM$_3$/DG$_2$ spaces
+    (\texttt{degree}$=2$), cubic coordinate geometry (\texttt{coords\_degree}$=3$),
+    and the cPG ($P_2$) integrator at $\Delta t = 43.2$\,s (\texttt{nsteps}$=1000$),
+    $t = 43200$\,s. Both fields converge at \emph{third} order, one order higher than
+    the \texttt{degree}$=1$ case (Table~\ref{tab:lauter-spatial-coords2}): the spatial
+    order tracks the element degree once the geometry satisfies
+    \texttt{coords\_degree}$=$\texttt{degree}$+1$.}
+  \label{tab:lauter-spatial-deg2}
+\end{table}
+
+% ---------- TEMPORAL (vary dt, fixed mesh ref4; numerical reference) ----------
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{c c c c c c c}
+    \toprule
+    \texttt{nsteps} & $\Delta t$ (s) & Courant
+      & $\|u-u_{\mathrm{ex}}\|/\|u_{\mathrm{ex}}\|$ & rate$_u$
+      & $\|D-D_{\mathrm{ex}}\|/\|D_{\mathrm{ex}}\|$ & rate$_D$ \\
+    \midrule
+    240 & 5400 & 0.47 & $2.20\times10^{-3}$ & --   & $1.08\times10^{-4}$ & --   \\
+    480 & 2700 & 0.23 & $1.38\times10^{-4}$ & 4.00 & $8.27\times10^{-6}$ & 3.71 \\
+    960 & 1350 & 0.12 & $1.35\times10^{-5}$ & 3.35 & $4.81\times10^{-6}$ & 0.78 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Temporal convergence for the Läuter et al.\ (2005) Example~3 test case
+    (deterministic) on a fixed mesh (refinement level~4, \texttt{degree}$=2$,
+    \texttt{coords\_degree}$=3$) with the cPG ($P_2$) integrator, measured against the
+    exact solution over a long integration ($t = 1296000$\,s, $15$ days) so the temporal
+    error sits well above the spatial floor. The leading velocity rate
+    ($\texttt{nsteps}=240\!\to\!480$: $4.00$) is floor-free and confirms \emph{fourth}-order
+    temporal accuracy, consistent with cPG($k$) being equivalent to the $k$-stage
+    Gauss--Legendre collocation method (order $2k$). The fourth-order error decreases by
+    $\sim 16\times$ per refinement, so it meets the spatial floor within one step; the
+    depth, whose temporal error is smaller relative to its floor, floors one step earlier,
+    so its finer rates are floor-limited rather than representative of the order.}
+  \label{tab:lauter-temporal-deg2}
+\end{table}

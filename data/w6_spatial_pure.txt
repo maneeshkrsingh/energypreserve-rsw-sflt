@@ -1,0 +1,43 @@
+Authorization required, but no authorization protocol specified
+Authorization required, but no authorization protocol specified
+Authorization required, but no authorization protocol specified
+
+Spatial convergence  (pure, nsteps=256)
+Mesh: icosahedral sphere, factor-2 refinement between levels
+Averaged over 1 seed(s)
+==================================================
+
+ ref    ncells    h (km)
+   2        160    1785.5
+   3        640     892.8
+   4       2560     446.4
+   5      10240     223.2
+   6      40960     111.6
+
+  ref 2 (h≈1786 km): ||u_err||=1.281581e+07  ||D_err||=5.445705e+08  n=1
+  ref 3 (h≈893 km): ||u_err||=1.749844e+06  ||D_err||=1.385726e+08  n=1
+  ref 4 (h≈446 km): ||u_err||=3.010990e+05  ||D_err||=3.468524e+07  n=1
+  ref 5 (h≈223 km): ||u_err||=5.509814e+04  ||D_err||=8.412942e+06  n=1
+
+Convergence rates (velocity):
+  ref 2 -> 3: 2.8726
+  ref 3 -> 4: 2.5389
+  ref 4 -> 5: 2.4502
+
+Convergence rates (depth):
+  ref 2 -> 3: 1.9745
+  ref 3 -> 4: 1.9982
+  ref 4 -> 5: 2.0436
+WARNING! There are options you set that were not used!
+WARNING! could be spelling mistake, etc!
+There are 10 unused database options. They are:
+Option left: name:--nsteps value: 256 source: command line
+Option left: name:--ref_levels value: 2 source: command line
+Option left: name:--seeds value: 987654321 source: command line
+Option left: name:--time_degree value: 2 source: command line
+Option left: name:--williamson value: 6 source: command line
+Option left: name:-nsteps value: 256 source: code
+Option left: name:-ref_levels value: 2 source: code
+Option left: name:-seeds value: 987654321 source: code
+Option left: name:-time_degree value: 2 source: code
+Option left: name:-williamson value: 6 source: code

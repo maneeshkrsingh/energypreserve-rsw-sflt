@@ -1,0 +1,51 @@
+Authorization required, but no authorization protocol specified
+Authorization required, but no authorization protocol specified
+Authorization required, but no authorization protocol specified
+
+Temporal convergence  (pure, ref_level=5, cPG P1)
+Time stepping: factor-2 refinement between levels, tmax=172800 s
+Averaged over 1 seed(s)
+==================================================
+
+ nsteps      dt (s)  dt (hours)
+     80       2160.0       0.6000
+    160       1080.0       0.3000
+    320        540.0       0.1500
+    640        270.0       0.0750
+   2560         67.5       0.0187
+
+  nsteps=   80 (dt=2160 s): mean=9.459391e+06  std=0.000000e+00  n=1
+  nsteps=  160 (dt=1080 s): mean=4.697359e+06  std=0.000000e+00  n=1
+  nsteps=  320 (dt=540 s): mean=1.275284e+06  std=0.000000e+00  n=1
+  nsteps=  640 (dt=270 s): mean=3.417645e+05  std=0.000000e+00  n=1
+
+[velocity] Convergence rates:
+  rate 80->160: 1.0099
+  rate 160->320: 1.8810
+  rate 320->640: 1.8997
+
+[depth] errors:
+  nsteps=   80 (dt=2160 s): mean=1.612770e+08  n=1
+  nsteps=  160 (dt=1080 s): mean=1.238862e+08  n=1
+  nsteps=  320 (dt=540 s): mean=5.554698e+07  n=1
+  nsteps=  640 (dt=270 s): mean=1.342057e+07  n=1
+
+[depth] Convergence rates:
+  rate 80->160: 0.3805
+  rate 160->320: 1.1572
+  rate 320->640: 2.0493
+WARNING! There are options you set that were not used!
+WARNING! could be spelling mistake, etc!
+There are 12 unused database options. They are:
+Option left: name:--ref_level value: 5 source: command line
+Option left: name:--seeds value: 987654321 source: command line
+Option left: name:--time_degree value: 1 source: command line
+Option left: name:--timesteps value: 80 source: command line
+Option left: name:--tmax value: 172800 source: command line
+Option left: name:--williamson value: 6 source: command line
+Option left: name:-ref_level value: 5 source: code
+Option left: name:-seeds value: 987654321 source: code
+Option left: name:-time_degree value: 1 source: code
+Option left: name:-timesteps value: 80 source: code
+Option left: name:-tmax value: 172800 source: code
+Option left: name:-williamson value: 6 source: code

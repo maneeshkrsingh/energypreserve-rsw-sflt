@@ -1,0 +1,36 @@
+Authorization required, but no authorization protocol specified
+Authorization required, but no authorization protocol specified
+Authorization required, but no authorization protocol specified
+  nsteps 8: missing ../RSW_checkpoint/new_RSW_checkpoint/velocity_timestepping_w2_5_8_pure_tdeg1_seed987654321.h5, skipping
+
+Temporal error vs exact (Läuter Ex.3)  (pure, ref_level=5, cPG P1, tmax=43200s)
+Quantity reported: discretisation error
+============================================================
+
+ nsteps      dt (s)     ||u_err||       rel_u     ||D_err||       rel_D
+     16      2700.0    5.1376e+06  7.2156e-03    8.3138e+07  3.6073e-04
+     32      1350.0    1.3031e+06  1.8302e-03    2.5527e+07  1.1076e-04
+     64       675.0    3.4566e+05  4.8547e-04    1.5912e+07  6.9040e-05
+    128       337.5    1.2317e+05  1.7299e-04    1.5073e+07  6.5398e-05
+    256       168.8    8.7471e+04  1.2285e-04    1.5009e+07  6.5121e-05
+
+Convergence rates (velocity / depth):
+  nsteps 16 -> 32:  u  1.979   D  1.703
+  nsteps 32 -> 64:  u  1.915   D  0.682
+  nsteps 64 -> 128:  u  1.489   D  0.078
+  nsteps 128 -> 256:  u  0.494   D  0.006
+WARNING! There are options you set that were not used!
+WARNING! could be spelling mistake, etc!
+There are 12 unused database options. They are:
+Option left: name:--ref_level value: 5 source: command line
+Option left: name:--seed value: 987654321 source: command line
+Option left: name:--time_degree value: 1 source: command line
+Option left: name:--timesteps value: 8 source: command line
+Option left: name:--tmax value: 43200 source: command line
+Option left: name:--williamson value: 2 source: command line
+Option left: name:-ref_level value: 5 source: code
+Option left: name:-seed value: 987654321 source: code
+Option left: name:-time_degree value: 1 source: code
+Option left: name:-timesteps value: 8 source: code
+Option left: name:-tmax value: 43200 source: code
+Option left: name:-williamson value: 2 source: code

@@ -1,0 +1,45 @@
+
+Temporal convergence  (SFLT, ref_level=4, cPG P1)
+Time stepping: factor-2 refinement between levels, tmax=172800 s
+Averaged over 3 seed(s)
+==================================================
+
+ nsteps      dt (s)  dt (hours)
+    200        864.0       0.2400
+    400        432.0       0.1200
+    800        216.0       0.0600
+   1600        108.0       0.0300
+
+  nsteps=  200 (dt=864 s): mean=1.788590e+07  std=3.101588e+05  n=3
+  nsteps=  400 (dt=432 s): mean=9.768220e+06  std=1.675389e+05  n=3
+  nsteps=  800 (dt=216 s): mean=4.067582e+06  std=7.924998e+04  n=3
+
+[velocity] Convergence rates:
+  rate 200->400: 0.8727
+  rate 400->800: 1.2639
+
+[depth] errors:
+  nsteps=  200 (dt=864 s): mean=1.871755e+08  n=3
+  nsteps=  400 (dt=432 s): mean=1.005811e+08  n=3
+  nsteps=  800 (dt=216 s): mean=4.477051e+07  n=3
+
+[depth] Convergence rates:
+  rate 200->400: 0.8960
+  rate 400->800: 1.1677
+WARNING! There are options you set that were not used!
+WARNING! could be spelling mistake, etc!
+There are 14 unused database options. They are:
+Option left: name:--ref_level value: 4 source: command line
+Option left: name:--seeds value: 1 source: command line
+Option left: name:--SFLT (no value) source: command line
+Option left: name:--time_degree value: 1 source: command line
+Option left: name:--timesteps value: 200 source: command line
+Option left: name:--tmax value: 172800 source: command line
+Option left: name:--williamson value: 6 source: command line
+Option left: name:-ref_level value: 4 source: code
+Option left: name:-seeds value: 1 source: code
+Option left: name:-SFLT (no value) source: code
+Option left: name:-time_degree value: 1 source: code
+Option left: name:-timesteps value: 200 source: code
+Option left: name:-tmax value: 172800 source: code
+Option left: name:-williamson value: 6 source: code

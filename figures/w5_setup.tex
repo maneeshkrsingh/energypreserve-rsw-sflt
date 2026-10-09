@@ -1,0 +1,56 @@
+% ---------------------------------------------------------------------------
+% Williamson et al. (1992) Test Case 5 -- zonal flow over an isolated mountain.
+% Initial condition / setup block. Requires \usepackage{amsmath}.
+% ---------------------------------------------------------------------------
+The Williamson et al.\ (1992) test case~5 prescribes a steady zonal (solid-body
+rotation) flow impinging on an isolated mountain. The flow has no analytic
+solution: the orography continually generates gravity waves and a downstream
+Rossby wave train, so the dynamics remain active throughout the integration,
+which makes it the canonical benchmark for long-time conservation. Let
+$\mathbf{x}=(x,y,z)$ be Cartesian coordinates on the sphere of radius~$a$, with
+longitude $\lambda=\operatorname{atan2}(y,x)$ and latitude
+$\varphi=\arcsin(z/a)$.
+
+The initial velocity is a solid-body rotation about the polar axis,
+%
+\begin{equation}
+  \mathbf{u}_0 = \frac{u_0}{a}\,\bigl(-y,\;x,\;0\bigr)
+              \;=\; u_0\cos\varphi\,\hat{\boldsymbol{\lambda}},
+  \label{eq:w5-u}
+\end{equation}
+%
+i.e.\ an eastward zonal jet of peak speed $u_0$. The free-surface elevation in
+gradient-wind (geostrophic) balance with \eqref{eq:w5-u} is
+%
+\begin{equation}
+  \eta_0(\varphi) = -\,\frac{1}{g}\left(a\,\Omega\,u_0 + \tfrac12 u_0^2\right)\sin^2\varphi ,
+  \label{eq:w5-eta}
+\end{equation}
+%
+and the isolated conical mountain (orography) is
+%
+\begin{equation}
+  b(\lambda,\varphi) = h_s\left(1 - \frac{r}{R}\right),
+  \qquad
+  r = \min\!\Bigl(R,\;\sqrt{(\varphi-\varphi_c)^2 + (\lambda-\lambda_c)^2}\Bigr),
+  \label{eq:w5-mtn}
+\end{equation}
+%
+a cone of height $h_s$ and base radius $R$ centred at $(\lambda_c,\varphi_c)$
+(zero outside $r=R$). The layer depth is then
+%
+\begin{equation}
+  D_0 = H + \eta_0 - b ,
+  \label{eq:w5-D}
+\end{equation}
+%
+with $H$ the mean fluid depth. The parameters are
+$a = 6{,}371{,}220~\mathrm{m}$,
+$\Omega = 7.292\times10^{-5}~\mathrm{s^{-1}}$,
+$g = 9.8~\mathrm{m\,s^{-2}}$,
+$u_0 = 20~\mathrm{m\,s^{-1}}$,
+$H = 5960~\mathrm{m}$,
+$h_s = 2000~\mathrm{m}$,
+$R = \pi/9$,
+and mountain centre $(\lambda_c,\varphi_c) = (-\pi/2,\,\pi/6)$
+($90^\circ$W, $30^\circ$N).

@@ -1,0 +1,56 @@
+% ---------------------------------------------------------------------------
+% Williamson et al. (1992) Test Case 6 -- Rossby--Haurwitz wave (wavenumber 4).
+% Initial condition / setup block. Requires \usepackage{amsmath}.
+% ---------------------------------------------------------------------------
+The Williamson et al.\ (1992) test case~6 is the Rossby--Haurwitz wave of zonal
+wavenumber~$R=4$: an analytic vorticity pattern that, in the non-divergent
+barotropic model, propagates eastward without change of shape. It is not an exact
+solution of the shallow-water equations, so the wave slowly steepens and breaks
+down after roughly $4$--$7$ days; the present experiments are therefore run to
+$t = 2$ days, while the flow is smooth. Let $\mathbf{x}=(x,y,z)$ be Cartesian
+coordinates on the sphere of radius~$a$, with longitude
+$\lambda=\operatorname{atan2}(y,x)$ and latitude
+$\varphi=\operatorname{atan2}\!\bigl(z,\sqrt{x^2+y^2}\bigr)$, and let
+$\hat{\mathbf{k}}$ denote the outward unit normal.
+
+The initial velocity is obtained from the stream function
+%
+\begin{equation}
+  \psi(\lambda,\varphi) = -a^{2}\omega\,\sin\varphi
+       + a^{2}K\,\cos^{R}\!\varphi\,\sin\varphi\,\cos(R\lambda),
+  \qquad
+  \mathbf{u}_0 = \hat{\mathbf{k}}\times\nabla\psi ,
+  \label{eq:w6-u}
+\end{equation}
+%
+i.e.\ $\mathbf{u}_0=\nabla^{\perp}\psi$ is divergence-free by construction. The
+balanced layer depth is
+%
+\begin{equation}
+  D_0(\lambda,\varphi) = H_0
+     + \frac{a^{2}}{g}\Bigl(A(\varphi) + B(\varphi)\cos(R\lambda)
+       + C(\varphi)\cos(2R\lambda)\Bigr),
+  \label{eq:w6-D}
+\end{equation}
+%
+with
+%
+\begin{align}
+  A(\varphi) &= \tfrac12\,\omega(2\Omega+\omega)\cos^{2}\!\varphi
+     + \tfrac14 K^{2}\cos^{2R}\!\varphi
+       \Bigl[(R+1)\cos^{2}\!\varphi + (2R^{2}-R-2)
+             - 2R^{2}\cos^{-2}\!\varphi\Bigr], \label{eq:w6-A}\\[2pt]
+  B(\varphi) &= \frac{2(\Omega+\omega)K}{(R+1)(R+2)}\,
+       \cos^{R}\!\varphi\Bigl[(R^{2}+2R+2) - (R+1)^{2}\cos^{2}\!\varphi\Bigr],
+       \label{eq:w6-B}\\[2pt]
+  C(\varphi) &= \tfrac14 K^{2}\cos^{2R}\!\varphi
+       \Bigl[(R+1)\cos^{2}\!\varphi - (R+2)\Bigr]. \label{eq:w6-C}
+\end{align}
+%
+The parameters are
+$a = 6{,}371{,}220~\mathrm{m}$,
+$\Omega = 7.292\times10^{-5}~\mathrm{s^{-1}}$,
+$g = 9.8~\mathrm{m\,s^{-2}}$,
+zonal wavenumber $R = 4$,
+$\omega = K = 7.847\times10^{-6}~\mathrm{s^{-1}}$,
+and reference depth $H_0 = 8000~\mathrm{m}$.
